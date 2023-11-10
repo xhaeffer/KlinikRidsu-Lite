@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jadwal Kegiatan</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+    </style>
+    <link rel="stylesheet" type="text/css" href="templates/jadwal2.css">
+</head>
+<body>
+    <header>
+        <h1>Jadwal Kegiatan Dokter</h1>
+    </header>
+
+    <section class="schedule">
+        {{range .data}}
+        <div class="card">
+            <h2>{{.Nama}}</h2>
+            <h3>Spesialisasi: {{.Spesialisasi}}</h3>
+            <div class="event">
+                <img src="data:image/png;base64,{{.EncodedGambar}}" width="300">
+                <table>
+                    <tr>
+                        <th>Hari</th>
+                        <th>Jam Mulai</th>
+                        <th>Jam Selesai</th>
+                    </tr>
+                    {{range .JadwalDokter}}
+                    <tr>
+                        <td>{{.Hari_Praktek}}</td>
+                        <td>{{.JamMulai}}</td>
+                        <td>{{.JamSelesai}}</td>
+                    </tr>
+                    {{end}}
+                </table>
+            </div>
+        </div>
+        {{end}}
+    </section>
+</body>
+</html>

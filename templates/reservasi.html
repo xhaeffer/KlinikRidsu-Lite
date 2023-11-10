@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="templates/home.css">
+    <title>Klinik Ridsu</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-header">
+            <a href="/">KLINIK RIDSU</a>
+        </div>
+        <div class="nav-items">
+            <ul>
+                <li class="nav-items"><a href="data.html" class="tbl-biru">Data Diri</a></li>
+                <li class="nav-items"><a href="pilihjadwal.html" class="tbl-biru">Pilih Jadwal</a></li>
+                <li class="nav-items"><a href="info.html" class="tbl-biru">Info</a></li>
+                <li class="nav-items"><a href="kontak.html" class="tbl-biru">Kontak Informasi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="isi"></div>
+
+    <form action="/reservasi" method="POST">
+        <div class="form-grup">
+            <label>Tanggal Kunjungan</label>
+            <input type="date" name="TglKunjungan">
+        </div>
+
+        <div class="form-grup">
+            <label>Nama</label>
+            <input type="text" name="Nama" placeholder="Nama">
+        </div>
+
+        <div class="form-grup">
+            <label>No. Medical Record</label>
+            <input type="text" name="NoRS" placeholder="No. Medical Record" maxlength="10" pattern="\d{10}">
+        </div>
+
+        <div class="form-grup">
+            <label>Pembayaran</label>
+            <select name="Pembayaran">
+                <option value="Pribadi">Pribadi</option>
+                <option value="Perusahaan">Perusahaan</option>
+                <option value="Asuransi">Asuransi</option>
+                <option value="BPJS">BPJS</option>
+            </select>
+        </div>
+
+        <div class="form-grup">
+            <label>NIK</label>
+            <input type="text" name="NIK" placeholder="NIK" maxlength="16" pattern="\d{16}">
+        </div>
+
+        <div class="form-grup">
+            <label>Tanggal Lahir</label>
+            <input type="date" name="TglLahir">
+        </div>
+
+        <div class="form-grup">
+            <label>Email</label>
+            <input type="email" name="Email" placeholder="Email" title="Email tidak valid!">
+        </div>
+
+        <div class="form-grup">
+            <label>Jenis Kelamin</label>
+            <select name="JenisKelamin">
+                <option value="Pria">Pria</option>
+                <option value="Wanita">Wanita</option>
+            </select>
+        </div>
+
+        <div class="form-grup">	
+            <label>No Telepon</label>
+            <input type="text" name="NoTelp" placeholder="No Telepon" maxlength="16" pattern="\+?\d{10,16}">
+        </div>
+
+        <button type="submit" class="tbl-biru" name="daftar" style="border: 0; display:block; width:80%; margin: 6px 0; width: 80%; padding: 15px; border-radius: 9px; margin-left: 30px; margin-top:20px; background-color:#75aacb; color:white;">RESERVASI</button>
+    </form>
+</body>
+
+</html>
