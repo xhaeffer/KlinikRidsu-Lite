@@ -12,5 +12,5 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     window.addEventListener('scroll', fadeInOnScroll);
-    fadeInOnScroll(); // Trigger on page load
+    fadeInOnScroll();
 });

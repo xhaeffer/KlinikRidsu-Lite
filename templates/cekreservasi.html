@@ -1,44 +1,96 @@
-<!-- cekreservasi.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Reservasi - Klinik Ridsu</title>
     <link rel="stylesheet" type="text/css" href="templates/css/cekreservasi.css">
     <script src="templates/scripts/cekreservasi.js" defer></script>
 </head>
 <body>
     {{ template "navbar.html" . }}
+    <div class="isi"><h1>Cek Reservasi</h1></div>
     <div class="cek-reservasi-container">
-        <h2>Cek Reservasi</h2>
         <form id="cekReservasiForm" class="cek-reservasi-form" action="/reservasi/api/byNoRS">
-            <label>Nomor RS</label>
+            <label>Masukkan Nomor RS</label>
             <input type="text" id="NoRS" name="no_rs" required>
             <br>
             <button type="button" onclick="cekReservasi()">Cek Reservasi</button>
         </form>
     
-        <!-- Container untuk menampilkan hasil -->
-        <div id="resultContainer" style="display: none;">
-            <p id="noDataMessage" style="display: none;">Data tidak ditemukan!</p>
-            <table id="resultTable" border="1">
-                <thead>
+    <div id="resultContainer" style="display: none;">
+        <p id="noDataMessage" style="display: none;">Data tidak ditemukan!</p>
+        <table id="resultTable" border="1">
+            <thead>
+                <tr>
+                    <th>Nomor RS</th>
+                    <th>NIK</th>
+                    <th>Tanggal Kunjungan</th>
+                    <th>Nama</th>
+                    <th>Jenis Kelamin</th>
+                    <th>Tanggal Lahir</th>
+                    <th>Email</th>
+                    <th>Nomor Telepon</th>
+                    <th>Pembayaran</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody id="resultTableBody"></tbody>
+        </table>
+    </div>
+
+    <div id="updatePopup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup('updatePopup')">&times;</span>
+            <h2>Update Reservasi</h2>
+            <form id="updateForm">
+                <table>
                     <tr>
-                        <th>ID Reservasi</th>
-                        <th>Nomor RS</th>
-                        <th>NIK</th>
-                        <th>Tanggal Kunjungan</th>
-                        <th>Nama</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Email</th>
-                        <th>Nomor Telepon</th>
-                        <th>Pembayaran</th>
-                        <th>Aksi</th>
+                        <td>ID Reservasi:</td>
+                        <td><span id="popupIdReservasi"></span></td>
                     </tr>
-                </thead>
-                <tbody id="resultTableBody"></tbody>
-            </table>
+                    <tr>
+                        <td>No RS:</td>
+                        <td><span id="popupNoRS"></span></td>
+                    </tr>
+                    <tr>
+                        <td>NIK:</td>
+                        <td><input type="text" id="popupNIK"></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Kunjungan:</td>
+                        <td><input type="date" id="popupTglKunjungan"></td>
+                    </tr>
+                    <tr>
+                        <td>Nama:</td>
+                        <td><input type="text" id="popupNama"></td>
+                    </tr>
+                    <tr>
+                        <td>Jenis Kelamin:</td>
+                        <td><input type="text" id="popupJenisKelamin"></td>
+                    </tr>
+                    <tr>
+                        <td>Tanggal Lahir:</td>
+                        <td><input type="date" id="popupTglLahir"></td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td><input type="email" id="popupEmail"></td>
+                    </tr>
+                    <tr>
+                        <td>No Telepon:</td>
+                        <td><input type="text" id="popupNoTelp"></td>
+                    </tr>
+                    <tr>
+                        <td>Pembayaran:</td>
+                        <td><input type="text" id="popupPembayaran"></td>
+                    </tr>
+                </table>
+                <p></p>
+                <button type="button" onclick="submitUpdate()">Update</button>
+                <button type="button" onclick="closePopup('updatePopup')">Batal</button>
+            </form>
         </div>
-    </body>
+    </div>
+</body>
 </html>

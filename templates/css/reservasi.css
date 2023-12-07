@@ -1,80 +1,19 @@
-body{
+body {
     font-family: 'Poppins', sans-serif;
     padding: 0px;
     margin: 0px;
-    background-color:#e4f0f5;
-    
+    background-color: #e4f0f5;
 }
 
-.isi h1{
+.isi h1 {
     text-align: center;
     color: #000000;
     margin-bottom: 50px;
 }
 
-.navbarr {
-    background-color: #3F72AF;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.menu-icon {
-    cursor: pointer;
-    z-index: 1001; /* Z-index lebih tinggi dari navbar */
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-.menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s, transform 0.5s;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    height: 100vh;
-    width: 250px; /* Lebar menu */
-    background-color: #3F72AF;
-    box-shadow: 0 4px 8px rgba(203, 40, 40, 0.1);
-    transform: translateX(-100%);
-    z-index: 1000; /* Z-index sama dengan navbar */
-}
-
-.menu-list.show {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.menu-list li {
-    margin: 40px;
-    padding: 10px auto;
-}
-
-.menu-list a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
 .content {
     padding: 20px;
-    margin-left: 250px; /* Sesuaikan dengan lebar menu */
+    margin-left: 250px;
     transition: margin-left 0.5s;
 }
 
@@ -84,62 +23,8 @@ body{
     }
 }
 
-
-
-.navbar{
-    background-color: rgb(70, 102, 156);
-    padding: 30px 30px;
-    display: flex;
-    align-items: center;
-    position: fixed;
-    top:0%;
-    width: 100%;
-    z-index: 1;
-    
-}
-
-.nav-header{
-    font-weight: bold;
-    font-size: 40px;
-}
-
-.nav-header a{
-    text-decoration: none;
-    color: #eff1f7;
-   
-}
-
-.navbar .nav-items ul{
-    display: flex;
-    padding: 0px;
-    margin: 0px;
-    list-style-type: none;
-    margin-left: 500px;
-    
-
-}
-
-.tbl-hijau{
-    background-color:#34ac70;
-    text-decoration: none;
-    padding: 20px 60px;
-    border-radius: 5px;
-    color: rgb(234, 234, 234);
-    font-weight: bold;
-    transition: 0,4s;
-    margin: 20px;
-    margin-left: 260px;
-    
-}
-
-.tbl-hijau:hover{
-    background-color: #64646d;
-    border-radius: 8px;
-}
-
-.isi{
-padding-top: 80px;
-
+.isi {
+    padding-top: 80px;
 }
 
 input,
@@ -168,26 +53,26 @@ select {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
     position: fixed;
-    top: 10%; /* Atur top agar tidak menutupi header saat di atas */
-    right: 20px; /* Sesuaikan jarak dari tepi kanan */
+    top: 10%;
+    right: 20px;
     transform: translate(0, 0);
-    z-index: 1; /* Lebih tinggi dari z-index header */
+    z-index: 1;
 }
 
 .card {
-    width: 800px; /* Ukuran yang berbeda sesuai kebutuhan */
+    width: 800px;
     background-color: #fff;
-    padding: 15px; /* Atur padding sesuai kebutuhan */
-    border-radius: 8px; /* Atur border-radius sesuai kebutuhan */
+    padding: 15px;
+    border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     text-align: left;
-    margin: 20px auto; /* Atur margin sesuai kebutuhan */
+    margin: 20px auto;
     position: relative;
-    z-index: 1; /* Menentukan tingkat z-indeks agar tetap muncul di atas elemen lain */
+    z-index: 1;
 }
 
 .card:not(:last-child) {
-    margin-right: 380px; /* Sesuaikan dengan lebar identitas-dokter dan margin */
+    margin-right: 380px;
 }
 
 .card h2 {
@@ -226,7 +111,6 @@ select {
     border-radius: 5px;
 }
 
-/* CSS untuk tabel */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -244,4 +128,21 @@ th, td {
 th {
     background-color: #34ac70;
     color: white;
+}
+
+.tbl-hijau {
+    background-color: #34ac70;
+    text-decoration: none;
+    padding: 20px 60px;
+    border-radius: 5px;
+    color: rgb(234, 234, 234);
+    font-weight: bold;
+    transition: 0.4s;
+    margin: 20px;
+    margin-left: 260px;
+}
+
+.tbl-hijau:hover {
+    background-color: #64646d;
+    border-radius: 8px;
 }

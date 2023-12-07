@@ -1,4 +1,3 @@
-// cekreservasi.js
 function cekReservasi() {
     const noRSInput = document.getElementById("NoRS");
     const noRSValue = noRSInput.value;
@@ -11,30 +10,24 @@ function cekReservasi() {
             const resultTable = document.getElementById("resultTable");
             const resultTableBody = document.getElementById("resultTableBody");
 
-            // Clear previous results
             resultTableBody.innerHTML = "";
 
             if (data.error) {
-                // Handle error response
                 console.error("Error response:", data.error);
                 noDataMessage.style.display = "none";
                 resultTable.style.display = "none";
                 resultContainer.style.display = "block";
                 resultContainer.innerHTML = `<p>Error: ${data.error}</p>`;
             } else {
-                // Display data
                 if (data.length === 0) {
-                    // No data found
                     noDataMessage.style.display = "block";
                     resultTable.style.display = "none";
                 } else {
-                    // Data found, display table
                     noDataMessage.style.display = "none";
                     resultTable.style.display = "table";
                     data.forEach(reservasi => {
                         const row = document.createElement("tr");
                         row.innerHTML = `
-                            <td>${reservasi.id_reservasi}</td>
                             <td>${reservasi.no_rs}</td>
                             <td>${reservasi.nik}</td>
                             <td>${reservasi.tgl_kunjungan}</td>
@@ -45,7 +38,8 @@ function cekReservasi() {
                             <td>${reservasi.no_telp}</td>
                             <td>${reservasi.pembayaran}</td>
                             <td>
-                                <button onclick="editReservasi(${reservasi.id_reservasi})">Update</button>
+                                <button onclick="openUpdatePopup(${reservasi.id_reservasi})">Update</button>
+                                <p></p>
                                 <button onclick="deleteReservasi(${reservasi.id_reservasi})">Delete</button>
                             </td>
                         `;
@@ -64,22 +58,62 @@ function cekReservasi() {
         });
 }
 
-function editReservasi(reservasiId) {
-    fetch(`/reservasi/api/byID/${reservasiId}`)
+function openUpdatePopup(idReservasi) {
+    fetch(`/reservasi/api/byID/${idReservasi}`)
     .then(response => response.json())
     .then(data => {
-        // Isi formulir dengan data reservasi
-        document.getElementById("NoRS").value = data.no_rs;
-        document.getElementById("NIK").value = data.nik;
-        document.getElementById("Nama").value = data.nama;
-        document.getElementById("TglLahir").value = data.tgl_lahir;
-        document.getElementById("JenisKelamin").value = data.jenis_kelamin;
-        // ... isikan formulir dengan properti lainnya
+        document.getElementById("popupIdReservasi").innerText = idReservasi;
+        document.getElementById("popupNoRS").innerText = data[0].no_rs;
+        document.getElementById("popupNIK").value = data[0].nik;
+        document.getElementById("popupTglKunjungan").value = data[0].tgl_kunjungan;
+        document.getElementById("popupNama").value = data[0].nama;
+        document.getElementById("popupJenisKelamin").value = data[0].jenis_kelamin;
+        document.getElementById("popupTglLahir").value = data[0].tgl_lahir;
+        document.getElementById("popupEmail").value = data[0].email;
+        document.getElementById("popupNoTelp").value = data[0].no_telp;
+        document.getElementById("popupPembayaran").value = data[0].pembayaran;
 
-        // Setelah formulir diisi, munculkan formulir atau modal edit
-        // ...
-
+        document.getElementById("updatePopup").style.display = "flex";
     })
+    .catch(error => {
+        console.error("Error fetching data:", error);
+    });
+}
+
+function submitUpdate() {
+    const updatedData = {
+        no_rs: parseInt(document.getElementById("popupNoRS").value),
+        nik: parseInt(document.getElementById("popupNIK").value),
+        tgl_kunjungan: document.getElementById("popupTglKunjungan").value,
+        nama: document.getElementById("popupNama").value,
+        jenis_kelamin: document.getElementById("popupJenisKelamin").value,
+        tgl_lahir: document.getElementById("popupTglLahir").value,
+        email: document.getElementById("popupEmail").value,
+        no_telp: document.getElementById("popupNoTelp").value,
+        pembayaran: document.getElementById("popupPembayaran").value,
+    };
+
+    fetch(`/reservasi/api/byID/${document.getElementById("popupIdReservasi").innerText}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        closePopup("updatePopup");
+        cekReservasi(document.getElementById("popupIdReservasi"));
+        alert("Data reservasi berhasil diupdate!");
+    })
+    .catch(error => {
+        console.error("Error updating data:", error);
+        alert("Terjadi kesalahan saat melakukan update data. Silakan coba lagi.");
+    });
+}
+
+function closePopup(popupId) {
+    document.getElementById(popupId).style.display = "none";
 }
 
 function deleteReservasi(reservasiId) {

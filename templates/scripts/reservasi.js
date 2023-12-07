@@ -1,13 +1,42 @@
+function submitReservasi() {
+    const formData = {
+        NoRS: parseInt(document.getElementsByName("NoRS")[0].value),
+        NIK: parseInt(document.getElementsByName("NIK")[0].value),
+        Nama: document.getElementsByName("Nama")[0].value,
+        TglLahir: document.getElementsByName("TglLahir")[0].value,
+        JenisKelamin: document.getElementsByName("JenisKelamin")[0].value,
+        Poli: document.getElementsByName("Poli")[0].value,
+        Dokter: document.getElementsByName("Dokter")[0].value,
+        TglKunjungan: document.getElementsByName("TglKunjungan")[0].value,
+        Pembayaran: document.getElementsByName("Pembayaran")[0].value,
+        NoTelp: document.getElementsByName("NoTelp")[0].value,
+        Email: document.getElementsByName("Email")[0].value,
+    };
+
+    fetch('/reservasi', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert("Reservasi Berhasil!");
+    })
+    .catch(error => {
+        console.error('Error submitting reservation:', error);
+    });
+}
+
 document.addEventListener('DOMContentLoaded', function () {
     const poliDropdown = document.getElementById('poliDropdown');
     const dokterDropdown = document.getElementById('dokterDropdown');
     const identitasDokter = document.getElementById('doctorCard');
 
-    // Mengambil daftar poli dari server
     fetch('/jadwal/api/getPoli')
         .then(response => response.json())
         .then(data => {
-            // Mengisi dropdown Poli dengan data dari API
             data.forEach(poli => {
                 const option = document.createElement('option');
                 option.value = poli;
@@ -17,17 +46,14 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error fetching poli:', error));
 
-    // Event listener untuk perubahan pada dropdown "poli"
     poliDropdown.addEventListener('change', function () {
         const selectedPoli = poliDropdown.value;
 
-        // Mengambil daftar dokter berdasarkan "poli" yang dipilih dari server
         fetch(`/jadwal/api/byPoli/${selectedPoli}`)
             .then(response => response.json())
             .then(data => {
                 dokterDropdown.innerHTML = '<option value="" selected disabled>Pilih Dokter</option>';
 
-                // Menggunakan Set untuk menyimpan nama dokter yang unik
                 const uniqueDokters = new Set(data[0].JadwalDokter.map(jadwal => data[0]));
 
                 uniqueDokters.forEach(dokter => {
@@ -38,12 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     dokterDropdown.appendChild(option);
                 });
 
-                // Setelah dokter dipilih, tampilkan identitasDokter
                 dokterDropdown.addEventListener('change', function () {
                     const selectedDokter = dokterDropdown.options[dokterDropdown.selectedIndex];
                     const selectedDokterId = selectedDokter.dataset.dokterId;
 
-                    // Ambil data jadwal dokter dari API
                     fetch(`/jadwal/api/byID/${selectedDokterId}`)
                         .then(response => response.json())
                         .then(data => {

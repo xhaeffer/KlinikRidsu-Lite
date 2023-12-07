@@ -19,7 +19,7 @@ body {
 
 .menu-icon {
     cursor: pointer;
-    z-index: 1001; /* Z-index lebih tinggi dari navbar */
+    z-index: 1001;
 }
 
 .bar {
@@ -41,11 +41,11 @@ body {
     top: 60px;
     left: 0;
     height: 100vh;
-    width: 250px; /* Lebar menu */
+    width: 250px; 
     background-color: #3F72AF;
     box-shadow: 0 4px 8px rgba(203, 40, 40, 0.1);
     transform: translateX(-100%);
-    z-index: 1000; /* Z-index sama dengan navbar */
+    z-index: 1000;
 }
 
 .menu-list.show {
@@ -67,7 +67,7 @@ body {
 
 .content {
     padding: 20px;
-    margin-left: 250px; /* Sesuaikan dengan lebar menu */
+    margin-left: 250px;
     transition: margin-left 0.5s;
 }
 
@@ -77,13 +77,11 @@ body {
     }
 }
 
-
-
 .header {
     padding-top: 40px;
     text-align: center;
     padding: 20px;
-    background-color: #DBE2EF; /* Warna latar belakang header */
+    background-color: #DBE2EF; 
 }
 
 .header h1 {
@@ -92,7 +90,7 @@ body {
 }
 
 .header p {
-    color: #555; /* Warna teks abu-abu */
+    color: #555; 
 }
 
 .container {
@@ -106,8 +104,8 @@ body {
 }
 
 .btn {
-    background-color: #34ac70; /* Warna latar belakang tombol */
-    color: white; /* Warna teks tombol */
+    background-color: #34ac70; 
+    color: white; 
     padding: 15px 25px;
     text-decoration: none;
     display: inline-block;
@@ -115,12 +113,12 @@ body {
 }
 
 .btn a {
-    color: white; /* Warna teks tombol */
+    color: white; 
     text-decoration: none;
 }
 
 .btn:hover {
-    background-color: #34ac70; /* Warna latar belakang tombol saat dihover */
+    background-color: #34ac70; 
     border-radius: 7px;
 }
 
@@ -129,7 +127,7 @@ body {
     margin: 0px;
     padding: 0px;
     opacity: 0;
-    transform: translateY(20px); /* Optional: slide down a bit */
+    transform: translateY(20px);
     transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
 }
 
@@ -166,14 +164,4 @@ body {
 }
 .btn-isi h2{
     text-align: center;
-}
-
-iframe {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border: none;
-    z-index: 1001;
 }

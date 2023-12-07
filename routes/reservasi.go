@@ -15,40 +15,46 @@ func Reservasi (r *gin.Engine, db *gorm.DB) {
 	r.POST("/reservasi", func(c *gin.Context) {
 		var data databases.Reservasi
 
-		// Bind data dari formulir HTML ke struct
-		if err := c.Bind(&data); err != nil {
+		if err := c.BindJSON(&data); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
 		}
-
-		// Simpan data ke dalam database
+	
 		if err := db.Create(&data).Error; err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Gagal menyimpan data ke database"})
 			return
-		} else {
-			c.HTML(http.StatusOK, "reservasi.html", gin.H{"message": "Reservasi berhasil disimpan", "data": data})
 		}
+	
+		c.JSON(http.StatusOK, data)
+	})
+
+	r.GET("/reservasi/api/byID/:id", func(c *gin.Context) {
+		id := c.Param("id")
+
+		var data []databases.Reservasi
+
+		if err := db.Model(&databases.Reservasi{}).Where("id_reservasi = ?", id).Find(&data).Error; err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Gagal mengambil data dari database"})
+			return
+		}		
+		c.JSON(http.StatusOK, data)
 	})
 
 	r.PUT("/reservasi/api/byID/:id", func(c *gin.Context) {
-		// Ambil parameter NoRS dari URL
 		id := c.Param("id")
 	
-		// Ambil data yang akan diupdate dari body permintaan
 		var updatedData databases.Reservasi
-		if err := c.BindJSON(&updatedData); err != nil {
+		if err := c.Bind(&updatedData); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": "Format data tidak valid"})
 			return
 		}
 
-		// Lakukan operasi update di database dengan GORM
 		var existingData databases.Reservasi
 		if err := db.Where("id_reservasi = ?", id).First(&existingData).Error; err != nil {
 			c.JSON(http.StatusNotFound, gin.H{"error": "Data tidak ditemukan"})
 			return
 		}
 
-		// Update data yang ditemukan
 		if err := db.Model(&existingData).Updates(updatedData).Error; err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": "Gagal melakukan update"})
 			return

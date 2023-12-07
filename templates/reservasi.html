@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="templates/css/reservasi.css">
     <script src="templates/scripts/reservasi.js"></script>
-    <!-- <script src="templates/scripts/popup.js"></script> -->
-    <title>Klinik Ridsu</title>
+    <title>Reservasi Dokter - Klinik Ridsu</title>
 </head>
 
 <body>
     {{ template "navbar.html" . }}
-    <div class="isi"><h1>Book Appointment</h1></div>
+    <div class="isi"><h1>Reservasi</h1></div>
     <form action="/reservasi" method="POST">
         <div class="card" id="personalInfoCard">
             <h2>Informasi Personal</h2>
             <p>Mohon pastikan kembali bahwa data yang ditampilkan sesuai!</p>
-            <!-- Kelompok input untuk Informasi Personal -->
             <div class="form-grup">
                 <label>No. Medical Record</label>
                 <input type="text" name="NoRS" placeholder="No. Medical Record" maxlength="10" pattern="\d{10}">
@@ -48,7 +46,6 @@
         
         <div class="card" id="appointmentInfoCard">
             <h2>Informasi Kunjungan</h2>
-            <!-- Kelompok input untuk Informasi Kunjungan -->
             <div class="form-grup">
                 <label>Poli</label>
                 <select name="Poli" id="poliDropdown">
@@ -64,7 +61,6 @@
                 <select name="Dokter" id="dokterDropdown">
                     <option value="" selected disabled>Pilih Dokter</option>
                     <option value="{{ . }}">{{ . }}</option>
-                    <!-- Options will be populated dynamically based on the selected "poli" -->
                 </select>
             </div>
         
@@ -76,7 +72,6 @@
         
         <div class="card" id="paymentInfoCard">
             <h2>Informasi Pembayaran</h2>
-            <!-- Kelompok input untuk Informasi Pembayaran -->
             <div class="form-grup">
                 <label>Pembayaran</label>
                 <select name="Pembayaran">

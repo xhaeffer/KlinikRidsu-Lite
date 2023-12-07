@@ -52,7 +52,6 @@ func Jadwal (r *gin.Engine, db *gorm.DB) {
 		}
 		
 		c.JSON(http.StatusOK, data)
-		
 	})
 
 	r.GET("/jadwal/api/getPoli", func(c *gin.Context) {
