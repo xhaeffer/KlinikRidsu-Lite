@@ -5,66 +5,7 @@ body {
     height: 150vh;
 }
 
-.navbarr {
-    background-color: #3F72AF;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-.menu-icon {
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: #fff;
-    margin: 6px 0;
-    transition: 0.4s;
-}
-
-.menu-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s, transform 0.5s;
-    position: fixed;
-    top: 60px;
-    left: 0;
-    height: 100vh;
-    width: 250px; 
-    background-color: #3F72AF;
-    box-shadow: 0 4px 8px rgba(203, 40, 40, 0.1);
-    transform: translateX(-100%);
-    z-index: 1000;
-}
-
-.menu-list.show {
-    visibility: visible;
-    opacity: 1;
-    transform: translateX(0);
-}
-
-.menu-list li {
-    margin: 40px;
-    padding: 10px auto;
-}
-
-.menu-list a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-}
-
+/* Content */
 .content {
     padding: 20px;
     margin-left: 250px;
@@ -77,6 +18,7 @@ body {
     }
 }
 
+/* Header */
 .header {
     padding-top: 40px;
     text-align: center;
@@ -93,6 +35,7 @@ body {
     color: #555; 
 }
 
+/* Container */
 .container {
     padding: 20px;
     text-align: center;
@@ -103,6 +46,7 @@ body {
     height: auto;
 }
 
+/* Button */
 .btn {
     background-color: #34ac70; 
     color: white; 
@@ -122,10 +66,11 @@ body {
     border-radius: 7px;
 }
 
-.isi{
-    display:flex;
-    margin: 0px;
-    padding: 0px;
+/* Isi Section */
+.isi {
+    display: flex;
+    margin: 0;
+    padding: 0;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
@@ -134,34 +79,53 @@ body {
 .isi.show {
     opacity: 1;
     transform: translateY(0);
-  }
+}
 
-.dalam{
+.dalam {
     width: 50%;
-    margin-left:30px;
+    margin-left: 30px;
     margin: 20px;
     padding: 20px;
 }
-.dalam p{
+
+.dalam p {
     text-align: justify;
 }
-.dalam h2{
+
+.dalam h2 {
     text-align: center;
 }
 
-.btn-isi{
+.btn-isi {
     margin: 20px;
     width: 50%;
 }
 
-.btn-isi p{
+.btn-isi p {
     text-align: justify;
 }
 
-
-.isigambar{
+.isigambar {
     text-align: center;
 }
-.btn-isi h2{
+
+.btn-isi h2 {
     text-align: center;
+}
+
+/* Section Pendaftaran */
+#CekPendaftaran {
+    background-color: #e4f0f5;
+    padding: 50px;
+    text-align: center;
+}
+
+#CekPendaftaran h1 {
+    color: #000000;
+    margin-bottom: 30px;
+}
+
+.isi p {
+    text-align: justify;
+    color: #555;
 }
