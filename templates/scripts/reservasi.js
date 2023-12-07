@@ -70,10 +70,23 @@ document.addEventListener('DOMContentLoaded', function () {
 
                     fetch(`/jadwal/api/byID/${selectedDokterId}`)
                         .then(response => response.json())
-                        .then(data => {
+                        .then(data => {                            
                             identitasDokter.querySelector('h2').textContent = data[0].nama_dokter;
                             identitasDokter.querySelector('h3').textContent = `Poli: ${data[0].poli}`;
                             identitasDokter.querySelector('img').src = `data:image/png;base64,${data[0].gambar}`;
+        
+                            // Bersihkan tabel jadwal sebelum menambahkan data baru
+                            const jadwalTable = identitasDokter.querySelector('table');
+                            jadwalTable.innerHTML = '<tr><th>Hari</th><th>Jam Mulai</th><th>Jam Selesai</th></tr>';
+        
+                            // Tambahkan baris baru untuk setiap jadwal dokter
+                            data[0].JadwalDokter.forEach(jadwal => {
+                                const row = document.createElement('tr');
+                                row.innerHTML = `<td>${jadwal.hari}</td><td>${jadwal.jam_mulai || '-'}</td><td>${jadwal.jam_selesai || '-'}</td>`;
+                                jadwalTable.appendChild(row);
+                            });
+        
+                            // Tampilkan identitasDokter
                             identitasDokter.style.display = 'block';
                         })
                         .catch(error => {
