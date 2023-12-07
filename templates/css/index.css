@@ -1,0 +1,169 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #F9F7F7;
+    height: 150vh;
+}
+
+.navbarr {
+    background-color: #3F72AF;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-icon {
+    cursor: pointer;
+    z-index: 1001; /* Z-index lebih tinggi dari navbar */
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s, transform 0.5s;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+    width: 250px; /* Lebar menu */
+    background-color: #3F72AF;
+    box-shadow: 0 4px 8px rgba(203, 40, 40, 0.1);
+    transform: translateX(-100%);
+    z-index: 1000; /* Z-index sama dengan navbar */
+}
+
+.menu-list.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-list li {
+    margin: 40px;
+    padding: 10px auto;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.content {
+    padding: 20px;
+    margin-left: 250px; /* Sesuaikan dengan lebar menu */
+    transition: margin-left 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+}
+
+
+
+.header {
+    padding-top: 40px;
+    text-align: center;
+    padding: 20px;
+    background-color: #DBE2EF; /* Warna latar belakang header */
+}
+
+.header h1 {
+    margin-bottom: 10px;
+    padding-top: 50px;
+}
+
+.header p {
+    color: #555; /* Warna teks abu-abu */
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.btn {
+    background-color: #34ac70; /* Warna latar belakang tombol */
+    color: white; /* Warna teks tombol */
+    padding: 15px 25px;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+.btn a {
+    color: white; /* Warna teks tombol */
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #34ac70; /* Warna latar belakang tombol saat dihover */
+    border-radius: 7px;
+}
+
+.isi{
+    display:flex;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0;
+    transform: translateY(20px); /* Optional: slide down a bit */
+    transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.isi.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+.dalam{
+    width: 50%;
+    margin-left:30px;
+    margin: 20px;
+    padding: 20px;
+}
+.dalam p{
+    text-align: justify;
+}
+.dalam h2{
+    text-align: center;
+}
+
+.btn-isi{
+    margin: 20px;
+    width: 50%;
+}
+
+.btn-isi p{
+    text-align: justify;
+}
+
+
+.isigambar{
+    text-align: center;
+}
+.btn-isi h2{
+    text-align: center;
+}

@@ -1,0 +1,247 @@
+body{
+    font-family: 'Poppins', sans-serif;
+    padding: 0px;
+    margin: 0px;
+    background-color:#e4f0f5;
+    
+}
+
+.isi h1{
+    text-align: center;
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+.navbarr {
+    background-color: #3F72AF;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-icon {
+    cursor: pointer;
+    z-index: 1001; /* Z-index lebih tinggi dari navbar */
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s, transform 0.5s;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+    width: 250px; /* Lebar menu */
+    background-color: #3F72AF;
+    box-shadow: 0 4px 8px rgba(203, 40, 40, 0.1);
+    transform: translateX(-100%);
+    z-index: 1000; /* Z-index sama dengan navbar */
+}
+
+.menu-list.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-list li {
+    margin: 40px;
+    padding: 10px auto;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.content {
+    padding: 20px;
+    margin-left: 250px; /* Sesuaikan dengan lebar menu */
+    transition: margin-left 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+}
+
+
+
+.navbar{
+    background-color: rgb(70, 102, 156);
+    padding: 30px 30px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top:0%;
+    width: 100%;
+    z-index: 1;
+    
+}
+
+.nav-header{
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.nav-header a{
+    text-decoration: none;
+    color: #eff1f7;
+   
+}
+
+.navbar .nav-items ul{
+    display: flex;
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    margin-left: 500px;
+    
+
+}
+
+.tbl-hijau{
+    background-color:#34ac70;
+    text-decoration: none;
+    padding: 20px 60px;
+    border-radius: 5px;
+    color: rgb(234, 234, 234);
+    font-weight: bold;
+    transition: 0,4s;
+    margin: 20px;
+    margin-left: 260px;
+    
+}
+
+.tbl-hijau:hover{
+    background-color: #64646d;
+    border-radius: 8px;
+}
+
+.isi{
+padding-top: 80px;
+
+}
+
+input,
+textarea,
+select,
+label {
+    display: block;
+    width: 60%;
+    padding: 20px;
+    border-radius: 9px;
+    margin-left: 50px;
+}
+
+select {
+    width: 66%;
+    padding: 20px;
+    border-radius: 9px;
+    margin-left: 50px;
+}
+
+.identitas-dokter {
+    width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: fixed;
+    top: 10%; /* Atur top agar tidak menutupi header saat di atas */
+    right: 20px; /* Sesuaikan jarak dari tepi kanan */
+    transform: translate(0, 0);
+    z-index: 1; /* Lebih tinggi dari z-index header */
+}
+
+.card {
+    width: 800px; /* Ukuran yang berbeda sesuai kebutuhan */
+    background-color: #fff;
+    padding: 15px; /* Atur padding sesuai kebutuhan */
+    border-radius: 8px; /* Atur border-radius sesuai kebutuhan */
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    margin: 20px auto; /* Atur margin sesuai kebutuhan */
+    position: relative;
+    z-index: 1; /* Menentukan tingkat z-indeks agar tetap muncul di atas elemen lain */
+}
+
+.card:not(:last-child) {
+    margin-right: 380px; /* Sesuaikan dengan lebar identitas-dokter dan margin */
+}
+
+.card h2 {
+    color: #000000;
+    margin-left: 50px;
+}
+.card p {
+    color: #000000;
+    margin-left: 50px;
+}
+
+.event {
+    margin-top: 10px;
+}
+
+.time {
+    color: #555;
+}
+
+.description {
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #555;
+    border-radius: 7PX;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #34ac70;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 30px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* CSS untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #34ac70;
+    color: white;
+}

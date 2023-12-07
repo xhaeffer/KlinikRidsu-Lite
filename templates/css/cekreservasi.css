@@ -1,0 +1,121 @@
+/* Isi dari file "cekreservasi.css" */
+
+/* Reset CSS */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e4f0f5;
+    padding-top: 80px;
+}
+
+/* Header */
+header {
+    background-color: #3F72AF;
+    color: #fff;
+    text-align: center;
+    padding-top: 32px;
+}
+
+header h1 {
+    font-size: 36px;
+}
+
+/* Container untuk form cek reservasi */
+.cek-reservasi-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Gaya untuk form cek reservasi */
+.cek-reservasi-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cek-reservasi-form label {
+    margin-bottom: 8px;
+}
+
+.cek-reservasi-form input[type="text"],
+.cek-reservasi-form button {
+    margin-bottom: 16px;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.cek-reservasi-form button {
+    background-color: #3F72AF;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+/* Hamburger Menu */
+.navbarr {
+    background-color: #3F72AF;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-icon {
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s, transform 0.5s;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #3F72AF;
+    box-shadow: 0 4px 8px rgba(203, 40, 40, 0.1);
+    transform: translateX(-100%);
+    z-index: 1000;
+}
+
+.menu-list.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-list li {
+    margin: 40px;
+    padding: 10px auto;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
