@@ -1,0 +1,22 @@
+/* CSS Stylesheet */
+.submenu {
+    display: none;
+    position: absolute;
+    background-color: #3F72AF;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.menu-list li:hover .submenu {
+    display: block;
+}
+
+.submenu li {
+    display: block;
+}
+
+.submenu li a { 
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+}

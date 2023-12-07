@@ -3,73 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservasi Klinik Ridsa</title>
-    <style>
-        body {
-            font-family: Poppins, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-        .header {
-            background-color: #25486d;
-            color: #fff;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 100px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            margin-top: 20px;
-            height: 80%;
-        }
-
-        h1 {
-            font-size: 36px;
-        }
-
-        p {
-            font-size: 20px;
-        }
-
-
-        .btn {
-            display: inline-block;
-            background-color: #25486d;
-            color: #fff;
-            padding: 10px 20px;
-            margin-top: 30px;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .img {
-            height: 80%;
-        }
-
-        .btn:hover {
-            background-color: #25486d;
-        }
-    </style>
+    <link rel="stylesheet" href="templates/css/index.css">
+    <link rel="stylesheet" type="text/css" href="templates/css/navbar.css">
+	<script src="templates/scripts/hamburg_menu.js"></script>
 </head>
 <body>
     <div class="header">
-        <h1>Welcome to Klinik Ridsa</h1>
+        <h1>Selamat Datang di Klinik Ridsu</h1>
+        <p>Tempat Terbaik untuk Pelayanan Kesehatan</p>
+		<p>Lihat jadwal dokter, klik disini</p>
+        <a href="reservasi" class="btn">Reservasi</a></button>
     </div>
     <div class="container">
-        <img src="templates/img/klin.jpg" alt="Klinik Ridsa" width="800">
-        <p>Di Klinik Ridsa, kami siap melayani Anda. Silakan buat reservasi sekarang!</p>
-        <a href="reservasi" class="btn">Reservasi</button></a>
-  
-        <p>Lihat jadwal dokter, klik disini</p>
-        <a href="jadwal" class="btn">Lihat Disini</button></a>
-    
-        
-        
+		<img src="templates/img/klinik.jpg" alt="Klinik Ridsu" width="500">
+        <p>Di Klinik Ridsu, kami siap melayani Anda. Silakan buat reservasi sekarang!</p>
+        <a href="jadwal" class="btn">JADWAL DOKTER</button></a>
+    </div>
 
+    <div class="navbarr">
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="menu-list" id="menu-list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="jadwal">FIND DOCTOR</a></li>
+            <li><a href="#">APPOINTMENT</a>
+                <ul class="submenu">
+                    <li><a href="reservasi">BOOK APPOINTMENT</a></li>
+                    <li><a href="cekreservasi">CHECK APPOINTMENT</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+	<section id="CekPendaftaran">
+        <h1 style="text-align: center;">INFORMASI</h1>
+        <div class="isi" id="animated-div">
+            <div class="dalam">
+                <h2>Klinik Terbaik</h2>
+                <div class="isigambar">
+                    <img style="width: 500px;" src="templates/img/tempat.jpg" alt="">
+                </div>
+                <p>Klinik Ridsu adalah pilihan terbaik untuk layanan kesehatan yang berkualitas dan komprehensif. Dengan komitmen untuk memberikan perawatan yang canggih dan perhatian yang personal, klinik kami menjadi destinasi utama bagi pasien yang mencari pengalaman medis yang unggul.</p>
+            </div>
+
+            <div class="btn-isi">
+                <h2>Dokter Kompeten</h2>
+                <div class="isigambar">
+                 <img style="width: 500px;" src="templates/img/bagus.jpeg" alt="">
+                </div>
+                <p>Tim profesional kami terdiri dari dokter dan tenaga kesehatan berpengalaman yang didedikasikan untuk memberikan perawatan holistik kepada setiap pasien. Dengan fasilitas modern dan peralatan medis terkini, Klinik Ridsu menawarkan lingkungan yang nyaman dan aman bagi setiap kunjungan.</p>
+            </div>
+        </div>
+			<div class="bagian-kiri">
+        </div>
+    </section>
+</body>
+</html>
 

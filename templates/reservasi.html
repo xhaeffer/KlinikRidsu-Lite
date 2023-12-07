@@ -1,86 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="templates/home.css">
+    <link rel="stylesheet" href="templates/css/reservasi.css">
+    <link rel="stylesheet" type="text/css" href="templates/css/navbar.css">
+    <script src="templates/scripts/hamburg_menu.js"></script>
+    <script src="templates/scripts/reservasi.js"></script>
+    <script src="templates/scripts/popup.js"></script>
     <title>Klinik Ridsu</title>
 </head>
 
 <body>
-    <nav class="navbar">
-        <div class="nav-header">
-            <a href="/">KLINIK RIDSU</a>
+    <div class="navbarr">
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
-        <div class="nav-items">
-            <ul>
-                <li class="nav-items"><a href="data.html" class="tbl-biru">Data Diri</a></li>
-                <li class="nav-items"><a href="pilihjadwal.html" class="tbl-biru">Pilih Jadwal</a></li>
-                <li class="nav-items"><a href="info.html" class="tbl-biru">Info</a></li>
-                <li class="nav-items"><a href="kontak.html" class="tbl-biru">Kontak Informasi</a></li>
-            </ul>
-        </div>
-    </nav>
+        <ul class="menu-list" id="menu-list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="jadwal">FIND DOCTOR</a></li>
+            <li><a href="#">APPOINTMENT</a>
+                <ul class="submenu">
+                    <li><a href="reservasi">BOOK APPOINTMENT</a></li>
+                    <li><a href="cekreservasi">CHECK APPOINTMENT</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
 
-    <div class="isi"></div>
-
+    <div class="isi"><h1>Book Appointment</h1></div>
     <form action="/reservasi" method="POST">
-        <div class="form-grup">
-            <label>Tanggal Kunjungan</label>
-            <input type="date" name="TglKunjungan">
+        <div class="card" id="personalInfoCard">
+            <h2>Informasi Personal</h2>
+            <p>Mohon pastikan kembali bahwa data yang ditampilkan sesuai!</p>
+            <!-- Kelompok input untuk Informasi Personal -->
+            <div class="form-grup">
+                <label>No. Medical Record</label>
+                <input type="text" name="NoRS" placeholder="No. Medical Record" maxlength="10" pattern="\d{10}">
+            </div>
+        
+            <div class="form-grup">
+                <label>NIK</label>
+                <input type="text" name="NIK" placeholder="NIK" maxlength="16" pattern="\d{16}">
+            </div>
+        
+            <div class="form-grup">
+                <label>Nama</label>
+                <input type="text" name="Nama" placeholder="Nama">
+            </div>
+        
+            <div class="form-grup">
+                <label>Tanggal Lahir</label>
+                <input type="date" name="TglLahir">
+            </div>
+        
+            <div class="form-grup">
+                <label>Jenis Kelamin</label>
+                <select name="JenisKelamin">
+                    <option value="Pria">Pria</option>
+                    <option value="Wanita">Wanita</option>
+                </select>
+            </div>
         </div>
-
-        <div class="form-grup">
-            <label>Nama</label>
-            <input type="text" name="Nama" placeholder="Nama">
+        
+        <div class="card" id="appointmentInfoCard">
+            <h2>Informasi Kunjungan</h2>
+            <!-- Kelompok input untuk Informasi Kunjungan -->
+            <div class="form-grup">
+                <label>Poli</label>
+                <select name="Poli" id="poliDropdown">
+                    <option value="" selected disabled>Poli Tujuan</option>
+                    {{ range .Poli }}
+                        <option value="{{ . }}">{{ . }}</option>
+                    {{ end }}
+                </select>
+            </div>
+        
+            <div class="form-grup">
+                <label>Dokter</label>
+                <select name="Dokter" id="dokterDropdown">
+                    <option value="" selected disabled>Pilih Dokter</option>
+                    <option value="{{ . }}">{{ . }}</option>
+                    <!-- Options will be populated dynamically based on the selected "poli" -->
+                </select>
+            </div>
+        
+            <div class="form-grup">
+                <label>Tanggal Kunjungan</label>
+                <input type="date" name="TglKunjungan" id="tanggalKunjungan">
+            </div>
         </div>
-
-        <div class="form-grup">
-            <label>No. Medical Record</label>
-            <input type="text" name="NoRS" placeholder="No. Medical Record" maxlength="10" pattern="\d{10}">
+        
+        <div class="card" id="paymentInfoCard">
+            <h2>Informasi Pembayaran</h2>
+            <!-- Kelompok input untuk Informasi Pembayaran -->
+            <div class="form-grup">
+                <label>Pembayaran</label>
+                <select name="Pembayaran">
+                    <option value="Pribadi">Pribadi</option>
+                    <option value="Perusahaan">Perusahaan</option>
+                    <option value="Asuransi">Asuransi</option>
+                    <option value="BPJS">BPJS</option>
+                </select>
+            </div>
+        
+            <div class="form-grup">
+                <label>No Telepon</label>
+                <input type="text" name="NoTelp" placeholder="No Telepon" maxlength="16" pattern="\+?\d{10,16}">
+            </div>
+        
+            <div class="form-grup">
+                <label>Email</label>
+                <input type="email" name="Email" placeholder="Email" title="Email tidak valid!">
+            </div>
         </div>
-
-        <div class="form-grup">
-            <label>Pembayaran</label>
-            <select name="Pembayaran">
-                <option value="Pribadi">Pribadi</option>
-                <option value="Perusahaan">Perusahaan</option>
-                <option value="Asuransi">Asuransi</option>
-                <option value="BPJS">BPJS</option>
-            </select>
-        </div>
-
-        <div class="form-grup">
-            <label>NIK</label>
-            <input type="text" name="NIK" placeholder="NIK" maxlength="16" pattern="\d{16}">
-        </div>
-
-        <div class="form-grup">
-            <label>Tanggal Lahir</label>
-            <input type="date" name="TglLahir">
-        </div>
-
-        <div class="form-grup">
-            <label>Email</label>
-            <input type="email" name="Email" placeholder="Email" title="Email tidak valid!">
-        </div>
-
-        <div class="form-grup">
-            <label>Jenis Kelamin</label>
-            <select name="JenisKelamin">
-                <option value="Pria">Pria</option>
-                <option value="Wanita">Wanita</option>
-            </select>
-        </div>
-
-        <div class="form-grup">	
-            <label>No Telepon</label>
-            <input type="text" name="NoTelp" placeholder="No Telepon" maxlength="16" pattern="\+?\d{10,16}">
-        </div>
-
-        <button type="submit" class="tbl-biru" name="daftar" style="border: 0; display:block; width:80%; margin: 6px 0; width: 80%; padding: 15px; border-radius: 9px; margin-left: 30px; margin-top:20px; background-color:#75aacb; color:white;">RESERVASI</button>
+        <button type="submit" class="tbl-hijau" name="daftar">RESERVASI</button>
     </form>
+
+    <div class="identitas-dokter" id="doctorCard">
+        <h2>{{.Nama}}</h2>
+        <h3>Poli: {{.Poli}}</h3>
+        <div class="event">
+            <img src="/templates/img/kosong.jpeg" width="300" alt="Default Image">
+            <table>
+                <tr>
+                    <th>Hari</th>
+                    <th>Jam Mulai</th>
+                    <th>Jam Selesai</th>
+                </tr>
+                {{range .JadwalDokter}}
+                <tr>
+                    <td>{{.Hari_Praktek}}</td>
+                    <td>{{if .JamMulai}}{{.JamMulai}}{{else}}-{{end}}</td>
+                    <td>{{if .JamSelesai}}{{.JamSelesai}}{{else}}-{{end}}</td>
+                </tr>
+                {{end}}
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>

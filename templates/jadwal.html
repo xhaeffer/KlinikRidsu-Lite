@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jadwal Kegiatan</title>
+    <link rel="stylesheet" type="text/css" href="templates/css/jadwal.css">
+    <link rel="stylesheet" type="text/css" href="templates/css/navbar.css">
+    <script src="templates/scripts/jadwal.js"></script>
+    <script src="templates/scripts/hamburg_menu.js"></script>
+
+</head>
+<body>
+    <div class="navbarr">
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="menu-list" id="menu-list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="jadwal">FIND DOCTOR</a></li>
+            <li><a href="#">APPOINTMENT</a>
+                <ul class="submenu">
+                    <li><a href="reservasi">BOOK APPOINTMENT</a></li>
+                    <li><a href="cekreservasi">CHECK APPOINTMENT</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="isi"><h1>Jadwal Dokter</h1></div>
+    <div class="schedule"> 
+        {{range .data}}
+        <div class="card">
+            <h2>{{.Nama}}</h2>
+            <h3>Poli: {{.Poli}}</h3>
+            <div class="event">
+                <img src="data:image/png;base64,{{.EncodedGambar}}" width="300">
+                <table>
+                    <tr>
+                        <th>Hari</th>
+                        <th>Jam Mulai</th>
+                        <th>Jam Selesai</th>
+                    </tr>
+                    {{range .JadwalDokter}}
+                    <tr>
+                        <td>{{.Hari_Praktek}}</td>
+                        <td>{{if .JamMulai}}{{.JamMulai}}{{else}}-{{end}}</td>
+                        <td>{{if .JamSelesai}}{{.JamSelesai}}{{else}}-{{end}}</td>
+                    </tr>
+                    {{end}}
+                </table>
+				<a href="reservasi?nama={{.Nama}}&poli={{.Poli}}" class="btn">Reservasi</a>
+            </div>
+        </div>
+        {{end}}
+    </section>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Reservasi - Klinik RIDSU</title>
+    <link rel="stylesheet" type="text/css" href="templates/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="templates/css/cekreservasi.css">
+    <script src="templates/scripts/hamburg_menu.js"></script>
+    <script src="templates/scripts/script.js"></script>
+</head>
+<body>
+    <div class="navbarr">
+        <div class="menu-icon" id="menu-icon">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <ul class="menu-list" id="menu-list">
+            <li><a href="/">HOME</a></li>
+            <li><a href="jadwal">FIND DOCTOR</a></li>
+            <li><a href="#">APPOINTMENT</a>
+                <ul class="submenu">
+                    <li><a href="reservasi">BOOK APPOINTMENT</a></li>
+                    <li><a href="cekreservasi">CHECK APPOINTMENT</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="cek-reservasi-container">
+        <h2>Cek Reservasi</h2>
+        <form class="cek-reservasi-form" action="cekreservasi" method="post">
+            <label>Nomor RS</label>
+            <input type="text" id="NoRS" name="NoRS" required>
+            <br>
+            <button type="submit">Cek Reservasi</button>
+        </form>
+    </div>
+    
+
+</body>
+</html>

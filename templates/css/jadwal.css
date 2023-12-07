@@ -1,0 +1,162 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #e4f0f5;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #3F72AF;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 15PX;
+}
+
+.navbarr {
+    background-color: #3F72AF;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.menu-icon {
+    cursor: pointer;
+    z-index: 1001; /* Z-index lebih tinggi dari navbar */
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+.menu-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s, transform 0.5s;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    height: 100vh;
+    width: 250px; /* Lebar menu */
+    background-color: #3F72AF;
+    box-shadow: 0 4px 8px rgba(203, 40, 40, 0.1);
+    transform: translateX(-100%);
+    z-index: 1000; /* Z-index sama dengan navbar */
+}
+
+.menu-list.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.menu-list li {
+    margin: 40px;
+    padding: 10px auto;
+}
+
+.menu-list a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+.content {
+    padding: 20px;
+    margin-left: 250px; /* Sesuaikan dengan lebar menu */
+    transition: margin-left 0.5s;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin-left: 0;
+    }
+}
+
+.isi{
+    padding-top: 80px;
+}
+
+.isi h1{
+    text-align: center;
+    color: #000000;
+    margin-bottom: 50px;
+}
+
+.schedule {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background-color: #fff;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.card h2 {
+    color: #171b178c;
+}
+
+.event {
+    margin-top: 10px;
+}
+
+.time {
+    color: #555;
+}
+
+.description {
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #555;
+    border-radius: 7PX;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #34ac70;
+    color: #fff;
+    padding: 10px 20px;
+    margin-top: 30px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* CSS untuk tabel */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #34ac70;
+    color: white;
+}
