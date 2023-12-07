@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="templates/css/index.css">
-    <link rel="stylesheet" type="text/css" href="templates/css/navbar.css">
-	<script src="templates/scripts/hamburg_menu.js"></script>
+    <link rel="stylesheet" type="text/css" href="templates/css/index.css">
+    <script src="templates/scripts/index.js"></script>
 </head>
 <body>
     <div class="header">
@@ -19,24 +18,8 @@
         <p>Di Klinik Ridsu, kami siap melayani Anda. Silakan buat reservasi sekarang!</p>
         <a href="jadwal" class="btn">JADWAL DOKTER</button></a>
     </div>
-
-    <div class="navbarr">
-        <div class="menu-icon" id="menu-icon">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <ul class="menu-list" id="menu-list">
-            <li><a href="/">HOME</a></li>
-            <li><a href="jadwal">FIND DOCTOR</a></li>
-            <li><a href="#">APPOINTMENT</a>
-                <ul class="submenu">
-                    <li><a href="reservasi">BOOK APPOINTMENT</a></li>
-                    <li><a href="cekreservasi">CHECK APPOINTMENT</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
+    
+    {{ template "navbar.html" . }}
 	<section id="CekPendaftaran">
         <h1 style="text-align: center;">INFORMASI</h1>
         <div class="isi" id="animated-div">

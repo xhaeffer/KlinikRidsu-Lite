@@ -1,43 +1,44 @@
+<!-- cekreservasi.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cek Reservasi - Klinik RIDSU</title>
-    <link rel="stylesheet" type="text/css" href="templates/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="templates/css/cekreservasi.css">
-    <script src="templates/scripts/hamburg_menu.js"></script>
-    <script src="templates/scripts/script.js"></script>
+    <script src="templates/scripts/cekreservasi.js" defer></script>
 </head>
 <body>
-    <div class="navbarr">
-        <div class="menu-icon" id="menu-icon">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <ul class="menu-list" id="menu-list">
-            <li><a href="/">HOME</a></li>
-            <li><a href="jadwal">FIND DOCTOR</a></li>
-            <li><a href="#">APPOINTMENT</a>
-                <ul class="submenu">
-                    <li><a href="reservasi">BOOK APPOINTMENT</a></li>
-                    <li><a href="cekreservasi">CHECK APPOINTMENT</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
+    {{ template "navbar.html" . }}
     <div class="cek-reservasi-container">
         <h2>Cek Reservasi</h2>
-        <form class="cek-reservasi-form" action="cekreservasi" method="post">
+        <form id="cekReservasiForm" class="cek-reservasi-form" action="/reservasi/api/byNoRS">
             <label>Nomor RS</label>
-            <input type="text" id="NoRS" name="NoRS" required>
+            <input type="text" id="NoRS" name="no_rs" required>
             <br>
-            <button type="submit">Cek Reservasi</button>
+            <button type="button" onclick="cekReservasi()">Cek Reservasi</button>
         </form>
-    </div>
     
-
-</body>
+        <!-- Container untuk menampilkan hasil -->
+        <div id="resultContainer" style="display: none;">
+            <p id="noDataMessage" style="display: none;">Data tidak ditemukan!</p>
+            <table id="resultTable" border="1">
+                <thead>
+                    <tr>
+                        <th>ID Reservasi</th>
+                        <th>Nomor RS</th>
+                        <th>NIK</th>
+                        <th>Tanggal Kunjungan</th>
+                        <th>Nama</th>
+                        <th>Jenis Kelamin</th>
+                        <th>Tanggal Lahir</th>
+                        <th>Email</th>
+                        <th>Nomor Telepon</th>
+                        <th>Pembayaran</th>
+                        <th>Aksi</th>
+                    </tr>
+                </thead>
+                <tbody id="resultTableBody"></tbody>
+            </table>
+        </div>
+    </body>
 </html>

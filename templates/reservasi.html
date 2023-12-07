@@ -4,32 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="templates/css/reservasi.css">
-    <link rel="stylesheet" type="text/css" href="templates/css/navbar.css">
-    <script src="templates/scripts/hamburg_menu.js"></script>
     <script src="templates/scripts/reservasi.js"></script>
-    <script src="templates/scripts/popup.js"></script>
+    <!-- <script src="templates/scripts/popup.js"></script> -->
     <title>Klinik Ridsu</title>
 </head>
 
 <body>
-    <div class="navbarr">
-        <div class="menu-icon" id="menu-icon">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <ul class="menu-list" id="menu-list">
-            <li><a href="/">HOME</a></li>
-            <li><a href="jadwal">FIND DOCTOR</a></li>
-            <li><a href="#">APPOINTMENT</a>
-                <ul class="submenu">
-                    <li><a href="reservasi">BOOK APPOINTMENT</a></li>
-                    <li><a href="cekreservasi">CHECK APPOINTMENT</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-
+    {{ template "navbar.html" . }}
     <div class="isi"><h1>Book Appointment</h1></div>
     <form action="/reservasi" method="POST">
         <div class="card" id="personalInfoCard">

@@ -23,9 +23,7 @@ func main() {
 	r := gin.Default()
 	r.Use(gin.Recovery())
 	r.LoadHTMLGlob("templates/*.html")
-	r.Static("/templates/css", "./templates/css")
-	r.Static("/templates/scripts", "./templates/scripts")
-	r.Static("/templates/img", "./templates/img")
+	r.Static("/templates", "./templates")
 	Routes(r, db)
 	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }	

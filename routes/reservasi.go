@@ -30,6 +30,45 @@ func Reservasi (r *gin.Engine, db *gorm.DB) {
 		}
 	})
 
+	r.PUT("/reservasi/api/byID/:id", func(c *gin.Context) {
+		// Ambil parameter NoRS dari URL
+		id := c.Param("id")
+	
+		// Ambil data yang akan diupdate dari body permintaan
+		var updatedData databases.Reservasi
+		if err := c.BindJSON(&updatedData); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": "Format data tidak valid"})
+			return
+		}
+
+		// Lakukan operasi update di database dengan GORM
+		var existingData databases.Reservasi
+		if err := db.Where("id_reservasi = ?", id).First(&existingData).Error; err != nil {
+			c.JSON(http.StatusNotFound, gin.H{"error": "Data tidak ditemukan"})
+			return
+		}
+
+		// Update data yang ditemukan
+		if err := db.Model(&existingData).Updates(updatedData).Error; err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Gagal melakukan update"})
+			return
+		}
+	
+		c.JSON(http.StatusOK, gin.H{"message": "Data berhasil diupdate"})
+	})
+
+	r.DELETE("/reservasi/api/byID/:id", func(c *gin.Context) {
+		id := c.Param("id")
+	
+		var reservasi databases.Reservasi
+		if err := db.Where("id_reservasi = ?", id).Delete(&reservasi).Error; err != nil {
+			c.JSON(http.StatusInternalServerError, gin.H{"error": "Gagal menghapus data dari database"})
+			return
+		}
+	
+		c.JSON(http.StatusOK, gin.H{"message": "Data berhasil dihapus"})
+	})
+
 	r.GET("/reservasi/api/byNoRS/:param", func(c *gin.Context) {
 		no_rs := c.Param("param")
 

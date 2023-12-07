@@ -167,3 +167,13 @@ body {
 .btn-isi h2{
     text-align: center;
 }
+
+iframe {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border: none;
+    z-index: 1001;
+}
