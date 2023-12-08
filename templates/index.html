@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Pengaturan meta dan judul halaman -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - Klinik Ridsu</title>
+    <!-- Menghubungkan file CSS untuk tata letak halaman -->
     <link rel="stylesheet" type="text/css" href="templates/css/index.css">
+    <!-- Menghubungkan file JavaScript untuk logika interaktif pada halaman -->
     <script src="templates/scripts/index.js"></script>
 </head>
 <body>
+    <!-- Bagian header halaman dengan judul dan gambar -->
     <div class="header">
         <h1>Selamat Datang di Klinik Ridsu</h1>
         <p>Tempat Terbaik untuk Pelayanan Kesehatan</p>
         <img src="templates/img/klinik.jpg" alt="Klinik Ridsu" width="500">
     </div>
 
+    <!-- Menggunakan template "navbar.html" untuk bagian navigasi -->
     {{ template "navbar.html" . }}
-	<section id="CekPendaftaran">
+    
+    <!-- Bagian utama halaman dengan informasi dan gambar animasi -->
+    <section id="CekPendaftaran">
         <h1 style="text-align: center;">INFORMASI</h1>
         <div class="isi" id="animated-div">
+            <!-- Konten informasi pertama tentang Klinik Terbaik -->
             <div class="dalam">
                 <h2>Klinik Terbaik</h2>
                 <div class="isigambar">
@@ -26,17 +34,18 @@
                 <p>Klinik Ridsu adalah pilihan terbaik untuk layanan kesehatan yang berkualitas dan komprehensif. Dengan komitmen untuk memberikan perawatan yang canggih dan perhatian yang personal, klinik kami menjadi destinasi utama bagi pasien yang mencari pengalaman medis yang unggul.</p>
             </div>
 
+            <!-- Konten informasi kedua tentang Dokter Kompeten -->
             <div class="dalam">
                 <h2>Dokter Kompeten</h2>
                 <div class="isigambar">
-                 <img style="width: 500px;" src="templates/img/bagus.jpeg" alt="">
+                    <img style="width: 500px;" src="templates/img/bagus.jpeg" alt="">
                 </div>
                 <p>Tim profesional kami terdiri dari dokter dan tenaga kesehatan berpengalaman yang didedikasikan untuk memberikan perawatan holistik kepada setiap pasien. Dengan fasilitas modern dan peralatan medis terkini, Klinik Ridsu menawarkan lingkungan yang nyaman dan aman bagi setiap kunjungan.</p>
             </div>
         </div>
-			<div class="bagian-kiri">
+        <!-- Bagian sisi kiri (tidak ada konten pada bagian ini) -->
+        <div class="bagian-kiri">
         </div>
     </section>
 </body>
 </html>
-

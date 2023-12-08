@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cek Reservasi - Klinik Ridsu</title>
+    <!-- Menghubungkan file CSS untuk tata letak halaman -->
     <link rel="stylesheet" type="text/css" href="templates/css/cekreservasi.css">
+    <!-- Menghubungkan file JavaScript untuk logika interaktif pada halaman -->
     <script src="templates/scripts/cekreservasi.js" defer></script>
 </head>
 <body>
+    <!-- Menggunakan template "navbar.html" untuk bagian navigasi -->
     {{ template "navbar.html" . }}
+    <!-- Bagian isi halaman dengan judul "Cek Reservasi" -->
     <div class="isi"><h1>Cek Reservasi</h1></div>
+    <!-- Form untuk mencari reservasi berdasarkan Nomor RS -->
     <div class="cek-reservasi-container">
         <form id="cekReservasiForm" class="cek-reservasi-form" action="/reservasi/api/byNoRS">
             <label>Masukkan Nomor RS</label>
@@ -18,10 +23,14 @@
             <button type="button" onclick="cekReservasi()">Cek Reservasi</button>
         </form>
     
+    <!-- Container untuk menampilkan hasil pencarian reservasi -->
     <div id="resultContainer" style="display: none;">
+        <!-- Pesan jika data tidak ditemukan -->
         <p id="noDataMessage" style="display: none;">Data tidak ditemukan!</p>
+        <!-- Tabel untuk menampilkan hasil pencarian -->
         <table id="resultTable" border="1">
             <thead>
+                <!-- Header kolom-kolom pada tabel -->
                 <tr>
                     <th>Nomor RS</th>
                     <th>NIK</th>
@@ -35,16 +44,22 @@
                     <th>Aksi</th>
                 </tr>
             </thead>
+            <!-- Tubuh tabel untuk menampilkan data hasil pencarian -->
             <tbody id="resultTableBody"></tbody>
         </table>
     </div>
 
+    <!-- Popup untuk melakukan update data reservasi -->
     <div id="updatePopup" class="popup">
         <div class="popup-content">
+            <!-- Tombol close pada popup -->
             <span class="close" onclick="closePopup('updatePopup')">&times;</span>
+            <!-- Judul pada popup -->
             <h2>Update Reservasi</h2>
+            <!-- Form untuk melakukan update data reservasi -->
             <form id="updateForm">
                 <table>
+                    <!-- Baris-baris form untuk mengisi data update -->
                     <tr>
                         <td>ID Reservasi:</td>
                         <td><span id="popupIdReservasi"></span></td>
@@ -87,7 +102,9 @@
                     </tr>
                 </table>
                 <p></p>
+                <!-- Spasi Tombol untuk melakukan update -->
                 <button type="button" onclick="submitUpdate()">Update</button>
+                <!-- Tombol untuk membatalkan update -->
                 <button type="button" onclick="closePopup('updatePopup')">Batal</button>
             </form>
         </div>

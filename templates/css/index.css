@@ -5,25 +5,10 @@ body {
     height: 150vh;
 }
 
-/* Content */
-.content {
-    padding: 20px;
-    margin-left: 250px;
-    transition: margin-left 0.5s;
-}
-
-@media screen and (max-width: 768px) {
-    .content {
-        margin-left: 0;
-    }
-}
-
-/* Header */
 .header {
-    padding-top: 40px;
+    padding: 40px 20px;
     text-align: center;
-    padding: 20px;
-    background-color: #DBE2EF; 
+    background-color: #DBE2EF;
 }
 
 .header h1 {
@@ -32,45 +17,11 @@ body {
 }
 
 .header p {
-    color: #555; 
+    color: #555;
 }
 
-/* Container */
-.container {
-    padding: 20px;
-    text-align: center;
-}
-
-.container img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Button */
-.btn {
-    background-color: #34ac70; 
-    color: white; 
-    padding: 15px 25px;
-    text-decoration: none;
-    display: inline-block;
-    border-radius: 5px;
-}
-
-.btn a {
-    color: white; 
-    text-decoration: none;
-}
-
-.btn:hover {
-    background-color: #34ac70; 
-    border-radius: 7px;
-}
-
-/* Isi Section */
 .isi {
     display: flex;
-    margin: 0;
-    padding: 0;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 1s ease-in-out, transform 0.5s ease-in-out;
@@ -83,7 +34,6 @@ body {
 
 .dalam {
     width: 50%;
-    margin-left: 30px;
     margin: 20px;
     padding: 20px;
 }
@@ -104,27 +54,18 @@ body {
 .btn-isi p {
     text-align: justify;
 }
-
 .isigambar {
     text-align: center;
 }
-
-.btn-isi h2 {
-    text-align: center;
-}
-
-/* Section Pendaftaran */
 #CekPendaftaran {
     background-color: #e4f0f5;
     padding: 50px;
     text-align: center;
 }
-
 #CekPendaftaran h1 {
     color: #000000;
     margin-bottom: 30px;
 }
-
 .isi p {
     text-align: justify;
     color: #555;

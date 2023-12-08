@@ -1,34 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- Pengaturan judul halaman dan tautan ke file CSS untuk tata letak -->
     <title>Jadwal Dokter - Klinik Ridsu</title>
     <link rel="stylesheet" type="text/css" href="templates/css/jadwal.css">
 </head>
 <body>
+    <!-- Menggunakan template "navbar.html" untuk bagian navigasi -->
     {{ template "navbar.html" . }}
+    
+    <!-- Bagian isi halaman dengan judul "Jadwal Dokter" -->
     <div class="isi"><h1>Jadwal Dokter</h1></div>
+    
+    <!-- Bagian jadwal dokter dengan menggunakan range untuk iterasi data -->
     <div class="schedule"> 
         {{range .data}}
+        <!-- Kartu informasi untuk setiap dokter -->
         <div class="card">
+            <!-- Judul kartu dengan nama dokter -->
             <h2>{{.Nama}}</h2>
+            <!-- Informasi poli tempat dokter bertugas -->
             <h3>Poli: {{.Poli}}</h3>
+            
+            <!-- Bagian jadwal dan gambar dokter -->
             <div class="event">
+                <!-- Gambar dokter yang dienkripsi dalam format base64 -->
                 <img src="data:image/png;base64,{{.EncodedGambar}}" width="300">
+                
+                <!-- Tabel jadwal dokter -->
                 <table>
                     <tr>
                         <th>Hari</th>
                         <th>Jam Mulai</th>
                         <th>Jam Selesai</th>
                     </tr>
+                    <!-- Iterasi untuk menampilkan jadwal dokter -->
                     {{range .JadwalDokter}}
                     <tr>
+                        <!-- Informasi hari praktek -->
                         <td>{{.Hari_Praktek}}</td>
+                        <!-- Informasi jam mulai (jika ada) -->
                         <td>{{if .JamMulai}}{{.JamMulai}}{{else}}-{{end}}</td>
+                        <!-- Informasi jam selesai (jika ada) -->
                         <td>{{if .JamSelesai}}{{.JamSelesai}}{{else}}-{{end}}</td>
                     </tr>
                     {{end}}
                 </table>
-				<a href="reservasi?nama={{.Nama}}&poli={{.Poli}}" class="btn">Reservasi</a>
+                <!-- Tautan untuk melakukan reservasi dengan parameter nama dan poli dokter -->
+                <a href="reservasi?nama={{.Nama}}&poli={{.Poli}}" class="btn">Reservasi</a>
             </div>
         </div>
         {{end}}

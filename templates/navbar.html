@@ -1,18 +1,31 @@
+<!-- Tautan ke file CSS untuk tata letak navbar -->
 <link rel="stylesheet" type="text/css" href="/templates/css/navbar.css">
+<!-- Skrip JavaScript untuk logika interaktif pada navbar -->
 <script src="/templates/scripts/navbar.js"></script>
 
+<!-- Struktur HTML untuk navbar -->
 <div class="navbarr">
+    <!-- Icon menu untuk tampilan mobile -->
     <div class="menu-icon" id="menu-icon">
         <div class="bar"></div>
         <div class="bar"></div>
         <div class="bar"></div>
     </div>
+    
+    <!-- Daftar menu utama -->
     <ul class="menu-list" id="menu-list">
+        <!-- Tautan menu untuk halaman utama -->
         <li><a href="/">HOME</a></li>
+        <!-- Tautan menu untuk halaman jadwal dokter -->
         <li><a href="/jadwal">FIND DOCTOR</a></li>
-        <li><a href="#">APPOINTMENT</a>
+        <!-- Menu dropdown untuk halaman appointment -->
+        <li>
+            <a href="#">APPOINTMENT</a>
+            <!-- Submenu untuk menu appointment -->
             <ul class="submenu">
+                <!-- Tautan menu untuk halaman booking appointment -->
                 <li><a href="/reservasi">BOOK APPOINTMENT</a></li>
+                <!-- Tautan menu untuk halaman cek appointment -->
                 <li><a href="/cekreservasi">CHECK APPOINTMENT</a></li>
             </ul>
         </li>

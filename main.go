@@ -1,4 +1,5 @@
 package main
+
 import (
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
@@ -7,10 +8,13 @@ import (
 )
 
 func init() {
+	// Mengatur mode debug untuk Gin
 	gin.SetMode(gin.DebugMode)
 }
 
+// Routes menginisialisasi dan menyiapkan rute untuk aplikasi
 func Routes(r *gin.Engine, db *gorm.DB) {
+	// Menyiapkan rute untuk fungsionalitas yang berbeda
 	routes.Index(r)
 	routes.Jadwal(r, db)
 	routes.Reservasi(r, db)
@@ -18,11 +22,22 @@ func Routes(r *gin.Engine, db *gorm.DB) {
 }
 
 func main() {
+	// Menginisialisasi koneksi database
 	db := databases.InitDatabase()
+
+	// Membuat router Gin baru
 	r := gin.Default()
 	r.Use(gin.Recovery())
+
+	// Memuat template HTML dari direktori "templates"
 	r.LoadHTMLGlob("templates/*.html")
+
+	// Menyajikan file statis dari direktori "templates"
 	r.Static("/templates", "./templates")
+
+	// Menyiapkan rute
 	Routes(r, db)
-	r.Run() // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
-}	
+
+	// Menjalankan aplikasi Gin pada port default (0.0.0.0:8080)
+	r.Run()
+}
