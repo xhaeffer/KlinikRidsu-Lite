@@ -1,5 +1,5 @@
 # Project Ujian Akhir - Klinik Ridsu (Lite)
-## Praktikumm Pemrograman Web
+## Praktikum Pemrograman Web
 
 Nama   : Subhan Syah Putra
 NPM    : 51421438
